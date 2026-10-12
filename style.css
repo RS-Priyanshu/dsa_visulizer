@@ -1,0 +1,294 @@
+      * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Fira Code', 'Cascadia Code', monospace;
+        }
+
+        body {
+            background: radial-gradient(circle at 20% 30%, #0a0f1e, #03050b);
+            min-height: 100vh;
+            padding: 1.5rem;
+            color: #eef5ff;
+        }
+
+        .app-container {
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        /* Control Panel */
+        .control-panel {
+            background: rgba(18, 25, 45, 0.85);
+            backdrop-filter: blur(12px);
+            border-radius: 2rem;
+            padding: 1.2rem 2rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0, 255, 255, 0.25);
+        }
+
+        .controls-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            min-width: 120px;
+        }
+
+        .control-group label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #7df9ff;
+        }
+
+        input, select, button {
+            background: #0f1422;
+            border: 1px solid #2a3a60;
+            color: #f0f3ff;
+            padding: 0.6rem 1rem;
+            border-radius: 1.2rem;
+            font-weight: 500;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        input[type="range"] {
+            cursor: pointer;
+            background: #1e2a3a;
+            height: 4px;
+            border-radius: 10px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #1e2a5e, #0f172a);
+            border: 1px solid #3e5a8f;
+            font-weight: 600;
+        }
+
+        button:hover:not(:disabled) {
+            background: linear-gradient(135deg, #2a3f7a, #1a253f);
+            border-color: #5f9eff;
+            transform: translateY(-2px);
+        }
+
+        .custom-array-input {
+            display: flex;
+            gap: 0.5rem;
+            flex: 2;
+            min-width: 250px;
+        }
+
+        .custom-array-input input {
+            flex: 2;
+            font-family: monospace;
+            font-size: 0.8rem;
+        }
+
+        /* Visualization Area - TOP */
+        .visualization-area {
+            background: #05080f;
+            border-radius: 2rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #2c3f66;
+        }
+
+        canvas {
+            display: block;
+            width: 100%;
+            height: auto;
+            background: #010101;
+            border-radius: 1.5rem;
+            box-shadow: inset 0 0 18px rgba(0,255,255,0.05), 0 0 0 2px #1f2b44;
+        }
+
+        /* Performance Dashboard */
+        .dashboard {
+            background: rgba(12, 20, 30, 0.85);
+            backdrop-filter: blur(16px);
+            border-radius: 1.6rem;
+            padding: 1rem 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(80, 180, 255, 0.4);
+        }
+
+        .metric-card {
+            background: #0a1020;
+            padding: 0.6rem 1rem;
+            border-radius: 1rem;
+            min-width: 130px;
+            border-left: 3px solid #2dd4bf;
+        }
+
+        .metric-card span {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #82cfff;
+        }
+
+        .metric-card .value {
+            font-size: 1.1rem;
+            font-weight: 800;
+            font-family: monospace;
+            color: #facc15;
+        }
+
+        /* Algorithm Info Section - BOTTOM */
+        .algorithm-info-section {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.05), rgba(0, 100, 255, 0.02));
+            border-radius: 2rem;
+            padding: 2rem;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+        }
+
+        .algorithm-description {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 1rem;
+            padding: 1.5rem;
+        }
+
+        .algorithm-description h3 {
+            color: #2dd4bf;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .algorithm-description p {
+            color: #d4e6ff;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        /* How it works steps */
+        .algo-steps {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 1rem;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 3px solid #2dd4bf;
+        }
+
+        .algo-steps h4 {
+            color: #2dd4bf;
+            margin-bottom: 0.6rem;
+            font-size: 0.9rem;
+        }
+
+        .algo-steps ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .algo-steps li {
+            padding: 0.3rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+            font-size: 0.85rem;
+            color: #d4e6ff;
+            line-height: 1.5;
+        }
+
+        .algo-steps li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #facc15;
+        }
+
+        .complexity-info {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .complexity-badge {
+            background: rgba(45, 212, 191, 0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 1rem;
+            font-size: 0.85rem;
+            border: 1px solid rgba(45, 212, 191, 0.3);
+        }
+
+        .python-code {
+            background: #0a0f1a;
+            border-radius: 0.8rem;
+            padding: 1.5rem;
+            overflow-x: auto;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            line-height: 1.6;
+            color: #bbf0ff;
+            border-left: 4px solid #2dd4bf;
+        }
+
+        .python-code strong {
+            color: #2dd4bf;
+            display: block;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .python-code pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: 'Fira Code', monospace;
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .start-btn {
+            background: linear-gradient(135deg, #2b5876, #0f2b3d);
+            border-color: #4c9aff;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            .controls-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .complexity-badge {
+                font-size: 0.7rem;
+            }
+            .python-code {
+                font-size: 0.7rem;
+                padding: 1rem;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a1020;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #2c3f66;
+            border-radius: 4px;
+        }

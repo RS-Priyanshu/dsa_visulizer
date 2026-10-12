@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>AlgoVision Pro | Sorting Algorithm Visualizer with Python Code</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-container">
+    <!-- Control Panel -->
+    <div class="control-panel">
+        <div class="controls-row">
+            <div class="control-group">
+                <label>⚡ ALGORITHM</label>
+                <select id="algoSelect">
+                    <option value="bubble">Bubble Sort</option>
+                    <option value="selection">Selection Sort</option>
+                    <option value="insertion">Insertion Sort</option>
+                    <option value="merge">Merge Sort</option>
+                    <option value="quick">Quick Sort</option>
+                    <option value="heap">Heap Sort</option>
+                    <option value="counting">Counting Sort</option>
+                    <option value="radix">Radix Sort</option>
+                    <option value="bucket">Bucket Sort</option>
+                    <option value="shell">Shell Sort</option>
+                    <option value="comb">Comb Sort</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label>📏 SIZE (10-400)</label>
+                <input type="range" id="sizeSlider" min="10" max="400" value="50" step="1">
+                <span id="sizeValue">50</span>
+            </div>
+            <div class="control-group">
+                <label>⏱️ SPEED (ms)</label>
+                <input type="range" id="speedSlider" min="1" max="150" value="30" step="1">
+                <span id="speedValue">30 ms</span>
+            </div>
+            <button id="genRandomBtn">🎲 RANDOM ARRAY</button>
+            <div class="custom-array-input">
+                <input type="text" id="customArrayInput" placeholder="e.g., 45, 12, 89, 33, 5">
+                <button id="applyCustomBtn">📥 SET</button>
+            </div>
+            <button id="startSortBtn" class="start-btn">🚀 START SORTING</button>
+        </div>
+    </div>
+
+    <!-- Visualization Area - TOP -->
+    <div class="visualization-area">
+        <canvas id="sortCanvas" width="1000" height="450" style="width:100%; height:auto; aspect-ratio:1000/450"></canvas>
+    </div>
+
+    <!-- Performance Dashboard -->
+    <div class="dashboard">
+        <div class="metric-card"><span>📌 CURRENT ALGORITHM</span><div class="value" id="algoName">Bubble Sort</div></div>
+        <div class="metric-card"><span>⏱️ EXECUTION TIME</span><div class="value" id="execTime">0 ms</div></div>
+        <div class="metric-card"><span>📊 ARRAY SIZE</span><div class="value" id="arraySizeStat">0</div></div>
+        <div class="metric-card"><span>🔄 COMPARISONS</span><div class="value" id="comparisons">0</div></div>
+        <div class="metric-card"><span>🔄 SWAPS</span><div class="value" id="swaps">0</div></div>
+    </div>
+
+    <!-- Algorithm Info Section - BOTTOM -->
+    <div class="algorithm-info-section">
+        <div class="algorithm-description">
+            <h3 id="algoTitle">Bubble Sort</h3>
+            <p id="algoDesc">Bubble Sort repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order. The pass through the list is repeated until no swaps are needed, indicating the list is sorted.</p>
+            <div class="algo-steps">
+                <h4>🔍 How it works:</h4>
+                <ul id="algoStepsList"></ul>
+            </div>
+            <div class="complexity-info">
+                <span class="complexity-badge" id="timeComplexityDisplay">Time: O(n²)</span>
+                <span class="complexity-badge" id="spaceComplexityDisplay">Space: O(1)</span>
+                <span class="complexity-badge" id="bestCaseDisplay">Best: O(n)</span>
+                <span class="complexity-badge" id="worstCaseDisplay">Worst: O(n²)</span>
+            </div>
+            <div class="python-code">
+                <strong>🐍 Python Implementation:</strong>
+                <pre id="pythonCode">def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n-1):
+        for j in range(n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return arr</pre>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
